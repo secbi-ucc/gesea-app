@@ -1,0 +1,7 @@
+<resources>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="header_left_padding">16dp</dimen>
+    <dimen name="header_height">192dp</dimen>
+    <dimen name="profile_image_size">64dp</dimen>
+</resources>

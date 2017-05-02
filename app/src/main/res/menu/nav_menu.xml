@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_asistencia"
+            android:checked="true"
+            android:icon="@drawable/ic_check_circle_grey600_48dp"
+            android:title="@string/home_item" />
+        <item
+            android:id="@+id/nav_actividades"
+            android:icon="@drawable/ic_calendar_clock_grey600_48dp"
+            android:title="@string/products_item" />
+
+        <item
+            android:id="@+id/nav_estudiantes"
+            android:icon="@drawable/ic_folder_account_grey600_48dp"
+            android:title="@string/invoices_item" />
+
+        <!-- Sección de configuración -->
+        <item
+            android:id="@+id/configuration_section"
+            android:title="@string/settings_item">
+            <menu>
+                <item
+                    android:id="@+id/nav_log_out"
+                    android:icon="@android:drawable/ic_lock_power_off"
+                    android:title="@string/log_out_item" />
+            </menu>
+        </item>
+    </group>
+</menu>

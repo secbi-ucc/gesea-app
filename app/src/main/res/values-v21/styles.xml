@@ -1,0 +1,17 @@
+<resources>
+    <style name="Theme.Platzi" parent="Base.AppTheme">
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@color/navDrawerAccentColor</item>
+
+    </style>
+
+    <style name="TextLabel" parent="Theme.Design">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColorHint">#9E9E9E</item>
+        <item name="android:textSize">20sp</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">#BDBDBD</item>
+        <item name="colorControlNormal">#BDBDBD</item>
+        <item name="colorControlActivated">#BDBDBD</item>
+    </style>
+</resources>

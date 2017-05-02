@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Gesea</string>
+    <string name="action_settings">Más opciones</string>
+    <string name="home_item">Tomar asistencia</string>
+    <string name="products_item">Mis actividades</string>
+    <string name="invoices_item">Mis estudiantes</string>
+    <string name="log_out_item">Cerrar Sesión</string>
+    <string name="settings_item">Configuración</string>
+    <string name="email_navdrawer">julioc255io@gmail.com</string>
+    <string name="name_navdrawer">Julio César</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Usuario</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="action_sign_in_short">Ingresar</string>
+    <string name="error_incorrect_password">Usuario o contraseña incorrectos</string>
+    <string name="error_field_required">Nombre de usuario requerido</string>
+</resources>
