@@ -214,6 +214,11 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onFailure(Call<LoginResponse> call, Throwable t) {
 
+                    mAuthTask = null;
+                    showProgress(false);
+
+                    mPasswordView.setError(t.getLocalizedMessage());
+                    mPasswordView.requestFocus();
 
                     t.printStackTrace();
 
