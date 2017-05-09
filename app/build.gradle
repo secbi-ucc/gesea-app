@@ -32,4 +32,6 @@ dependencies {
     compile "com.squareup.okhttp3:okhttp-urlconnection:3.7.0"
     compile 'com.squareup.okhttp3:logging-interceptor:3.7.0'
     compile 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
+    compile 'devs.mulham.horizontalcalendar:horizontalcalendar:1.1.0'
+    compile "me.henrytao:smooth-app-bar-layout:24.1.0.0"
 }
