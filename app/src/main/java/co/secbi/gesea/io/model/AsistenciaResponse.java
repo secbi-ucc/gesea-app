@@ -14,12 +14,12 @@ public class AsistenciaResponse {
     private class ZonasResults {
 
         @SerializedName(JsonKeys.ASISTENCIA_ARRAY)
-        ArrayList<Asistencia> zonas;
+        ArrayList<Asistencia> asistencia;
     }
 
 
-    public ArrayList<Asistencia> getZonas(){
-        return results.zonas;
+    public ArrayList<Asistencia> getAsistencia(){
+        return results.asistencia;
     }
 
 

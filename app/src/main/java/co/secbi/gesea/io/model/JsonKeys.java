@@ -9,4 +9,8 @@ public class JsonKeys {
     public static final String ASISTENCIA_ARRAY = "asistencia_array";
 
 
+    public static final String PROGRAMACION_RESULTS = "pogramacion_results";
+    public static final String PROGRAMACION_ARRAY = "pogramacion_array";
+
+
 }

@@ -1,16 +1,21 @@
 package co.secbi.gesea.io;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.franmontiel.persistentcookiejar.ClearableCookieJar;
 import com.franmontiel.persistentcookiejar.PersistentCookieJar;
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache;
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor;
 
-import java.net.CookieManager;
-import java.net.CookiePolicy;
-import okhttp3.JavaNetCookieJar;
+import java.io.IOException;
+
+import co.secbi.gesea.LoginActivity;
+import okhttp3.Headers;
+import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -32,6 +37,7 @@ public class ApiAdapter {
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
 
+
         ClearableCookieJar cookieJar =
                 new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(c));
 
@@ -39,9 +45,6 @@ public class ApiAdapter {
         builder.cookieJar(cookieJar);
 
         client = builder.build();
-
-
-
 
 
         if(API_SERVICE == null){
