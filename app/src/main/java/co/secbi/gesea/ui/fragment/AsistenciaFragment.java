@@ -6,13 +6,17 @@ package co.secbi.gesea.ui.fragment;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import co.secbi.gesea.MainActivity;
 import co.secbi.gesea.R;
 import co.secbi.gesea.io.ApiAdapter;
 import co.secbi.gesea.io.ApiConstants;
@@ -36,8 +40,13 @@ public class AsistenciaFragment extends Fragment implements Callback<AsistenciaR
         super.onCreate(savedInstanceState);
         adapter = new AsistenciaListAdapter(getActivity());
 
-        Call<AsistenciaResponse> call = ApiAdapter.getApiService(getContext()).getAsistencia();
+
+        Bundle b = getArguments();
+        String programacionId = b.getString("programacion_id");
+
+        Call<AsistenciaResponse> call = ApiAdapter.getApiService(getContext()).getAsistencia(ApiConstants.URL_ASISTENCIA_LIST + "/" + programacionId);
         call.enqueue(this);
+
     }
 
     @Override
@@ -49,8 +58,6 @@ public class AsistenciaFragment extends Fragment implements Callback<AsistenciaR
         mAsistenciaList = (RecyclerView) root.findViewById(R.id.asistencia_list);
 
         setupAsistenciaList();
-
-
         return root;
     }
 
@@ -69,13 +76,13 @@ public class AsistenciaFragment extends Fragment implements Callback<AsistenciaR
 
     @Override
     public void onResponse(Call<AsistenciaResponse> call, Response<AsistenciaResponse> response) {
-        TextView status = (TextView)getActivity().findViewById(R.id.status_text);
-        status.setText("Conectado al servidor " + ApiConstants.BASE_URL);
+        //TextView status = (TextView)getActivity().findViewById(R.id.status_text);
+        //status.setText("Conectado al servidor " + ApiConstants.BASE_URL);
 
 
         // response.isSuccessful() is true if the response code is 2xx
         if (response.isSuccessful()) {
-            adapter.addAll( response.body().getZonas());
+            adapter.addAll( response.body().getAsistencia());
         } else {
             int statusCode = response.code();
 
@@ -90,9 +97,9 @@ public class AsistenciaFragment extends Fragment implements Callback<AsistenciaR
     @Override
     public void onFailure(Call<AsistenciaResponse> call, Throwable t) {
 
-        TextView status = (TextView)getActivity().findViewById(R.id.status_text);
-        status.setBackgroundColor(Color.RED);
-        status.setText("No se pudo conectar al servidor " + ApiConstants.BASE_URL);
+       // TextView status = (TextView)getActivity().findViewById(R.id.status_text);
+       // status.setBackgroundColor(Color.RED);
+        //status.setText("No se pudo conectar al servidor " + ApiConstants.BASE_URL);
 
         t.printStackTrace();
 
