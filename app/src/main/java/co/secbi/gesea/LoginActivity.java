@@ -67,9 +67,8 @@ public class LoginActivity extends AppCompatActivity {
 
         SharedPrefsCookiePersistor cookies = new SharedPrefsCookiePersistor(getApplicationContext());
 
-
         try{
-            if ( cookies.loadAll().get(0).name().equals("sessionid" )){
+            if ( cookies.loadAll().get(0).name().equals("sessionid" ) || cookies.loadAll().get(1).name().equals("sessionid" )){
 
                 Intent main = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(main);
@@ -77,8 +76,12 @@ public class LoginActivity extends AppCompatActivity {
 
             }
 
+            Log.i("COOKIES", cookies.loadAll().toString());
+
 
         } catch (IndexOutOfBoundsException ex){
+
+            Log.i("COOKIES", cookies.loadAll().toString());
 
             ex.printStackTrace();
 
@@ -86,6 +89,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
+
 
 
     private void attemptLogin() {
