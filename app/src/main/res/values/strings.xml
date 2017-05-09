@@ -2,7 +2,7 @@
     <string name="app_name">Gesea</string>
     <string name="action_settings">Más opciones</string>
     <string name="home_item">Tomar asistencia</string>
-    <string name="products_item">Mis actividades</string>
+    <string name="products_item">Mi programación</string>
     <string name="invoices_item">Mis estudiantes</string>
     <string name="log_out_item">Cerrar Sesión</string>
     <string name="settings_item">Configuración</string>

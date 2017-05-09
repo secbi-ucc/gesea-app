@@ -3,19 +3,21 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_asistencia"
-            android:checked="true"
-            android:icon="@drawable/ic_check_circle_grey600_48dp"
-            android:title="@string/home_item" />
-        <item
             android:id="@+id/nav_actividades"
             android:icon="@drawable/ic_calendar_clock_grey600_48dp"
+            android:checked="true"
             android:title="@string/products_item" />
+
+        <item
+            android:id="@+id/nav_asistencia"
+            android:icon="@drawable/ic_check_circle_grey600_48dp"
+            android:title="Tomar asistencia" />
 
         <item
             android:id="@+id/nav_estudiantes"
             android:icon="@drawable/ic_folder_account_grey600_48dp"
-            android:title="@string/invoices_item" />
+            android:title="Mis estudiantes" />
+
 
         <!-- Sección de configuración -->
         <item

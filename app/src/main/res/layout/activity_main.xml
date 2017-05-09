@@ -20,6 +20,6 @@
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/nav_menu" />
 
-
-
 </android.support.v4.widget.DrawerLayout>
+
+

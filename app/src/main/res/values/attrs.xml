@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HorizontalCalendarView">
+        <!-- Text color for all dates except selected Date.-->
+        <attr name="textColorNormal" format="color" />
+        <!-- Text color for selected Date. -->
+        <attr name="textColorSelected" format="color" />
+        <!-- Background color for selector bar. -->
+        <attr name="selectorColor" format="color" />
+        <!-- Background color for selected date item. -->
+        <attr name="selectedDateBackground" format="color" />
+        <!-- Text size for month name. -->
+        <attr name="textSizeMonthName" format="dimension" />
+        <!-- Text size for day number. -->
+        <attr name="textSizeDayNumber" format="dimension" />
+        <!-- Text size for day name. -->
+        <attr name="textSizeDayName" format="dimension" />
+    </declare-styleable>
+</resources>

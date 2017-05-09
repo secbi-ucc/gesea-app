@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
 
-    <TextView
+
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Búscando el servidor ... "
-        android:id="@+id/status_text"
-        android:layout_gravity="center_horizontal"
-        android:background="#7da8a56d" />
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/asistencia_list"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:scrollbars="vertical"/>
 
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/asistencia_list"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:paddingTop="17dp"
-        android:scrollbars="vertical"/>
+    </FrameLayout>
 
 
-</FrameLayout>
+
+</RelativeLayout>

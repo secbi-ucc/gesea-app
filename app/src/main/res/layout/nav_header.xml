@@ -2,6 +2,7 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/header"
     android:layout_width="match_parent"
     android:layout_height="@dimen/header_height"
     android:background="#656575"
@@ -17,7 +18,7 @@
         android:layout_height="@dimen/profile_image_size"
         android:layout_marginBottom="16dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/profile_picture"
+        android:src="@drawable/ic_account_circle_white_48dp"
         app:border_color="@android:color/white"
         app:border_width="1dp" />
 
@@ -26,17 +27,17 @@
         android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/name_navdrawer"
+        android:text=""
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textStyle="bold" />
 
     <!-- Correo de la cuenta -->
     <TextView
-        android:id="@+id/usernamefield"
+        android:id="@+id/mail"
         style="@style/Widget.AppCompat.Spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/email_navdrawer"
+        android:text=""
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
 </LinearLayout>
