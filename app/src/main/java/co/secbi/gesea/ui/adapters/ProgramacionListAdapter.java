@@ -12,11 +12,18 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor;
+
 import java.util.ArrayList;
 import co.secbi.gesea.R;
 import co.secbi.gesea.domain.ProgramacionActividad;
+import co.secbi.gesea.io.ApiAdapter;
+import co.secbi.gesea.io.model.AsistenciaResponse;
 import co.secbi.gesea.ui.fragment.AsistenciaFragment;
 import co.secbi.gesea.ui.listeners.ItemClickListener;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by JulioC on 5/2/17.
@@ -54,7 +61,7 @@ public class ProgramacionListAdapter extends RecyclerView.Adapter<ProgramacionLi
 
         holder.setClickListener(new ItemClickListener() {
             @Override
-            public void onClick(View view, int position, boolean isLongClick) {
+            public void onClick(View view, final int position, boolean isLongClick) {
 
 
                 if (isLongClick) {
@@ -63,17 +70,35 @@ public class ProgramacionListAdapter extends RecyclerView.Adapter<ProgramacionLi
                 } else {
                     Toast.makeText(context, "Id Programaciom:  " + listaProgramacion.get(position).getId() , Toast.LENGTH_SHORT).show();
 
-                    Bundle args = new Bundle();
-                    args.putString("programacion_id",listaProgramacion.get(position).getId());
-                    AsistenciaFragment b = new AsistenciaFragment();
+                    SharedPrefsCookiePersistor cookies = new SharedPrefsCookiePersistor(context);
 
-                    b.setArguments(args);
+                    Call<AsistenciaResponse> call = ApiAdapter.getApiService(context).setAsistencia(cookies.loadAll().get(1).value(), "/api/asistencia/lista/" + listaProgramacion.get(position).getId() + "/");
+                    call.enqueue(new Callback<AsistenciaResponse>(){
 
-                    FragmentTransaction ft = ((FragmentActivity)context).getSupportFragmentManager().beginTransaction();
-                    ft.replace(R.id.main_content, b)
-                            .addToBackStack(null)
-                            .commit();
+                        @Override
+                        public void onResponse(Call<AsistenciaResponse> call, Response<AsistenciaResponse> response) {
 
+                            Bundle args = new Bundle();
+                            args.putString("programacion_id",listaProgramacion.get(position).getId());
+                            AsistenciaFragment b = new AsistenciaFragment();
+
+                            b.setArguments(args);
+
+                            FragmentTransaction ft = ((FragmentActivity)context).getSupportFragmentManager().beginTransaction();
+                            ft.replace(R.id.main_content, b)
+                                    .addToBackStack(null)
+                                    .commit();
+
+                        }
+                        @Override
+                        public void onFailure(Call<AsistenciaResponse> call, Throwable t) {
+
+
+                            t.printStackTrace();
+
+                        }
+
+                    });
                 }
             }
         });

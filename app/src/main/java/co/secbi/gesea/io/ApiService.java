@@ -30,6 +30,10 @@ public interface ApiService {
    @GET()
    Call<AsistenciaResponse> getAsistencia(@Url String url);
 
+
+   @POST()
+   Call<AsistenciaResponse> setAsistencia(@Header("X-CSRFToken") String CSRFToken, @Url String url);
+
    @GET(ApiConstants.URL_PROGRAMACION_LIST)
    Call<ProgramacionResponse> getProgramacion();
 
